@@ -1,29 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "correspondentcommerce",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Correspondent Commerce",
+  "description": "Change your items, change the world...",
   "authors": [
-    "Me!"
+    "Gronglegrowth"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/FyreAlchemage/correspondentcommerce"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/correspondentcommerce/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "com.gronglegrowth.correspondentcommerce.CorrespondentCommerce"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
   ],
 
   "depends": {
