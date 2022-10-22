@@ -19,4 +19,6 @@ public class ExchangeStoneItem extends Item {
         tooltip.add(Text.translatable("item.correspondentcommerce.rubedo_stone.tooltip").formatted(Formatting.GRAY));
 
     }
+
+    // TODO: Make this item not get used up on crafting
 }
