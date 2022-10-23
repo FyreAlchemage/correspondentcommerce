@@ -8,6 +8,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -24,8 +25,8 @@ public class CorrespondentCommerce implements ModInitializer {
 	public static final Item SHARD = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
 	public static final ExchangeStoneItem EXCHANGE_STONE = new ExchangeStoneItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).rarity(Rarity.RARE));
 
-	private static final Identifier MAGMA_CUBE_LOOT = Blocks.COAL_ORE.getLootTableId();
-	// coal is for testing
+	private static final Identifier MAGMA_CUBE_LOOT = Blocks.MAGMA_BLOCK.getLootTableId();
+	// will probably be changed to the entity proper later
 
 	@Override
 	public void onInitialize() {
@@ -39,7 +40,8 @@ public class CorrespondentCommerce implements ModInitializer {
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
 			if (source.isBuiltin() && MAGMA_CUBE_LOOT.equals(id)) {
 				LootPool.Builder poolBuilder = LootPool.builder()
-						.with(ItemEntry.builder(SHARD));
+						.with(ItemEntry.builder(SHARD))
+						.conditionally(SurvivesExplosionLootCondition.builder());
 
 				tableBuilder.pool(poolBuilder);
 			}
